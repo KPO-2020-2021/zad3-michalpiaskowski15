@@ -8,24 +8,26 @@ class Vector {
 private:
 
     double size[SIZE];     //Tablica wektora
-
+    friend class Rectangle;
 public:
 
-    Vector();
+    Vector();        /*konstruktor klasy*/
 
     Vector(double [SIZE]);
 
-    Vector operator + (const Vector &v);
+    Vector operator + (const Vector &v);    /*operator dodwania*/
 
-    Vector operator - (const Vector &v);
+    Vector operator - (const Vector &v);    /*operator odejmowania*/
 
-    Vector operator * (const double &tmp);
+    Vector operator * (const double &tmp);  /*operator mnozenia*/
 
-    Vector operator / (const double &tmp);
+    Vector operator / (const double &tmp);  /*operator dzielenia*/
 
     const double &operator [] (int index) const;
 
     double &operator [] (int index);
+
+    
 
 };
 
@@ -74,7 +76,7 @@ Vector::Vector(double tmp[SIZE]) {
 Vector Vector::operator + (const Vector &v) {
     Vector result;
     for (int i = 0; i < SIZE; i++) {
-        result[i] = size[i] += v[i];
+        result[i] = size[i] + v[i];
     }
     return result;
 }
